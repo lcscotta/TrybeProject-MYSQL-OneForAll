@@ -4,13 +4,13 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE SpotifyClone.planos (
+CREATE TABLE SpotifyClone.plano (
   plano_id INT PRIMARY KEY auto_increment,
   nome VARCHAR(255) NOT NULL,
   preco DECIMAL(5,2) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE SpotifyClone.usuarios (
+CREATE TABLE SpotifyClone.usuario (
 	usuario_id INT PRIMARY KEY auto_increment,
   nome VARCHAR(255) NOT NULL,
   idade INT NOT NULL,
@@ -19,12 +19,12 @@ CREATE TABLE SpotifyClone.usuarios (
   FOREIGN KEY (plano_id) REFERENCES SpotifyClone.plano(plano_id)  
 ) engine = InnoDB;
 
-CREATE TABLE SpotifyClone.artistas (
+CREATE TABLE SpotifyClone.artista (
   artista_id INT PRIMARY KEY auto_increment,
   nome VARCHAR(255) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE SpotifyClone.albuns (
+CREATE TABLE SpotifyClone.album (
   album_id INT PRIMARY KEY auto_increment,
   titulo VARCHAR(255) NOT NULL,
   ano_lancamento INT NOT NULL,
@@ -57,24 +57,24 @@ CREATE TABLE SpotifyClone.seguindo (
   FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artista(artista_id)
 ) engine = InnoDB;
 
-INSERT INTO SpotifyClone.planos (nome, preco)
+INSERT INTO SpotifyClone.plano (nome, preco)
 VALUES ('gratuito', 0.00), ('universitário', 5.99),
  ('pessoal', 6.99), ('familiar', 7.99);
 
-INSERT INTO SpotifyClone.usuarios (nome, idade, data_assinatura, plano_id)
+INSERT INTO SpotifyClone.usuario (nome, idade, data_assinatura, plano_id)
 VALUES ('Thati', 23, '2019-10-20', 1),
 ('Cintia', 35, '2017-12-30', 4), ('Bill', 20, '2019-06-05', 2),
 ('Roger', 45, '2020-05-13', 3), ('Norman', 58, '2017-02-17', 3),
 ('Patrick', 33, '2017-01-06', 4), ('Vivian', 26, '2018-01-05', 2),
-('Carol', 26, '2018-02-14', 3), ('Angelina', 42, '2018-04-29', 4),
+('Carol', 26, '2018-02-14', 2), ('Angelina', 42, '2018-04-29', 4),
 ('Paul', 46, '2017-01-17', 4);
 
-INSERT  INTO SpotifyClone.artistas (nome)
+INSERT  INTO SpotifyClone.artista (nome)
 VALUES ('Walter Phoenix'), ('Peter Strong'),
 ('Lance Day'), ('Freedie Shannon'),
 ('Tyler Isle'), ('Fog');
 
-INSERT INTO SpotifyClone.albuns (titulo, ano_lancamento, artista_id)
+INSERT INTO SpotifyClone.album (titulo, ano_lancamento, artista_id)
 VALUES  ('Envious', 1990, 1), ('Exuberant', 1993, 1),
 ('Hallowed Steam', 1995, 2), ('Incandescent', 1998, 3),
 ('Temporary Culture', 2001, 4), ('Library of liberty', 2003, 4),
@@ -90,7 +90,7 @@ VALUES ('Soul For Us', 200, 1), ('Reflections Of Magic', 163, 1),
 ('Celebration Of More', 146, 4), ('Rock His Everything', 223, 4),
 ('Home Forever', 231, 4), ('Diamond Power', 241, 4),
 ("Let's Be Silly", 132, 4), ('Thang Of Thunder', 240, 5),
-('Words Of Her Life', 185, 5), ('Whithout My Streets', 176, 5),
+('Words Of Her Life', 185, 5), ('Without My Streets', 176, 5),
 ('Need Of Evening', 190, 6), ('History Of My Roses', 222, 6), 
 ('Without My Love', 111, 6), ('Walking And Game', 123, 6),
 ('Young And Father', 197, 6), ('Finding My Traditions', 179, 7),
@@ -135,4 +135,4 @@ VALUES
 (7, 2), (7, 5),
 (8, 1), (8, 5),
 (9, 6), (9, 4), (9, 3),
-(10, 2), (10, 6); 
+(10, 2), (10, 6);
